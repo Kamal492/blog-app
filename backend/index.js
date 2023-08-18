@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 app.use(allowCrossDomain);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/index.html')); 
+  res.sendFile(path.join(__dirname, '../client/build/index.html')); // Adjust the path here
 });
 
 app.listen(PORT, () => {

@@ -69,9 +69,7 @@ app.use((req, res, next) => {
 });
 app.use(allowCrossDomain);
 
-app.get('*', (req, res) => {
-  res.sendFile('index.html'); // Adjust the path here
-});
+
 
 app.listen(PORT, () => {
     console.log("Server is running");

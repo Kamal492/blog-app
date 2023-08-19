@@ -56,10 +56,7 @@ app.get('*', (req, res) => {
 });
 
 app.use(cookieParser());
-const corsOptions = {
-  origin: process.env.FRONT_END_URL, // frontend URI (ReactJS)
-}
-app.use(cors(corsOptions));
+
 
 
 const allowCrossDomain = function(req, res, next) {

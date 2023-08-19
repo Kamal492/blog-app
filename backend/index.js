@@ -42,9 +42,7 @@ app.post("/blog/upload", upload.single("img"), (req, res) => {
   res.status(200).json("File uploaded successfully");
 })
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+
 
 app.use("/blog/auth", authRoute) 
 app.use("/blog/user", userRoute) 
@@ -53,6 +51,9 @@ app.use("/blog/category", catRoute)
 app.use("/blog/api", userDetailRoute) 
 app.use("/blog/subscribe", SubscriberRoute)
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 app.use(cookieParser());
 const corsOptions = {

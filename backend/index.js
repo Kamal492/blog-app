@@ -42,6 +42,10 @@ app.post("/blog/upload", upload.single("img"), (req, res) => {
   res.status(200).json("File uploaded successfully");
 })
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 app.use("/blog/auth", authRoute) 
 app.use("/blog/user", userRoute) 
 app.use("/blog/posts", postsRoute) 
@@ -69,9 +73,7 @@ app.use((req, res, next) => {
 });
 app.use(allowCrossDomain);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+
 
 app.listen(PORT, () => {
     console.log("Server is running");
